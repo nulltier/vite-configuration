@@ -1,0 +1,36 @@
+{
+  "name": "ag-grid",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite --mode development",
+    "build": "vite build --mode production",
+    "preview": "vite preview",
+    "build:preview": "npm run build && npm run preview",
+    "build:qa": "vite build --mode qa",
+    "build:qa:preview": "npm run build:qa && npm run preview"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ag-grid-community/core": "29.2.0",
+    "@vitejs/plugin-react-swc": "3.3.0",
+    "ag-grid-community": "29.2.0",
+    "ag-grid-react": "29.2.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-svg": "16.1.7",
+    "rollup": "3.20.2",
+    "terser": "5.16.9",
+    "vite": "4.2.1"
+  },
+  "devDependencies": {
+    "@types/jest": "29.5.0",
+    "@types/node": "18.15.11",
+    "@types/react": "18.0.35",
+    "@types/react-dom": "18.0.11",
+    "typescript": "5.0.4",
+    "prettier": "2.8.7"
+  }
+}

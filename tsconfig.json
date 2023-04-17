@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "esModuleInterop": true,
+    "types": [
+      "vite/client"
+    ],
+    "jsx": "react-jsx",
+    "module": "es2022",
+    "moduleResolution": "Node"
+  },
+  "include": [
+    "vite.config.ts",
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}
