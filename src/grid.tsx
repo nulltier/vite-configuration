@@ -5,6 +5,8 @@ import { ReactSVG } from "react-svg";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
+import "ag-grid-community/styles/ag-theme-balham.css";
+import "ag-grid-community/styles/ag-theme-material.css";
 
 type ColumnDef = ColDef | ColGroupDef;
 
@@ -84,8 +86,18 @@ export const Grid = () => {
   };
 
   return (
-    <>
+    <div className="canvas">
       <ReactSVG src="/vite.svg" />
+      <button
+        className="myButton"
+        onClick={() => {
+          let classList = document.querySelector("html").classList;
+          classList.toggle("light");
+          classList.toggle("dark");
+        }}
+      >
+        Toggle Light/Dark Theme
+      </button>
       <div className="ag-theme-alpine">
         <AgGridReact
           domLayout="autoHeight"
@@ -93,6 +105,6 @@ export const Grid = () => {
           gridOptions={gridOptions}
         ></AgGridReact>
       </div>
-    </>
+    </div>
   );
 };

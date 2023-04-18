@@ -26,7 +26,9 @@ export default defineConfig(
 
     const css: CSSOptions = {
       preprocessorOptions: {
-        scss: {},
+        scss: {
+          sourceMapEmbed: true,
+        },
       },
     };
     const config: UserConfig = {

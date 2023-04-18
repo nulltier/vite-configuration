@@ -1,0 +1,15 @@
+@import "constants";
+
+@function let($varName) {
+  @return var(--#{$varName});
+}
+
+@function u($size) {
+  @return #{calc($unit * $size / $fontSize)}rem;
+}
+
+@function get_color($colorName) {
+  @return let(color-#{$colorName});
+}
+
+

@@ -1,0 +1,18 @@
+@import "functions";
+@import "variables";
+@import "css-variables";
+@import "constants";
+
+html.light {
+  --background-color: #{get_color(green)};
+}
+
+html.dark {
+  --background-color: #{get_color(violet)};
+}
+
+.canvas {
+  background-color: $mainBackgroundColor;
+  padding: u(4);
+  margin: u(2);
+}
