@@ -1,7 +1,6 @@
+import React from "react";
 import { createRoot } from "react-dom/client";
-import { Grid } from "./grid";
 import "./env-conditional";
-import "/styles/main.scss";
 
 Promise.all([
   import("./grid"),

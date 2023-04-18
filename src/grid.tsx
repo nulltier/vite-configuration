@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { AgGridReact } from "ag-grid-react";
+import { AgGridReact, AgGridReactProps } from "ag-grid-react";
 import { ColDef, ColGroupDef, GridOptions } from "@ag-grid-community/core";
 import { ReactSVG } from "react-svg";
 
@@ -18,28 +18,28 @@ for (let i = 0, lim = 500; i < lim; i++) {
   data.push({ make: "Porsche", model: "Boxster", price: 72000, cool: "true" });
 }
 
-const Renderer = (params) => {
-  return (
-    <div>
-      Value is <b> {params.value} </b>
-    </div>
-  );
-};
+// const Renderer = (params) => {
+//   return (
+//     <div>
+//       Value is <b> {params.value} </b>
+//     </div>
+//   );
+// };
 
-const _complexColDefs: ColumnDef[] = [
-  {
-    field: "make",
-    cellRenderer: Renderer,
-  },
-  {
-    field: "model",
-    cellRenderer: Renderer,
-  },
-  {
-    field: "price",
-    cellRenderer: Renderer,
-  },
-];
+// const complexColDefs: ColumnDef[] = [
+//   {
+//     field: "make",
+//     cellRenderer: Renderer,
+//   },
+//   {
+//     field: "model",
+//     cellRenderer: Renderer,
+//   },
+//   {
+//     field: "price",
+//     cellRenderer: Renderer,
+//   },
+// ];
 
 const simpleColDefs: ColumnDef[] = [
   {
@@ -57,6 +57,7 @@ const simpleColDefs: ColumnDef[] = [
 ];
 
 function useForceRender() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [_, setCounter] = useState<number>(0);
   return useCallback(() => {
     setCounter((prev) => {
@@ -65,7 +66,9 @@ function useForceRender() {
   }, []);
 }
 export const Grid = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [rowData, _setRowData] = useState(data);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [columnDefs, _setColumnDefs] = useState<ColumnDef[]>(simpleColDefs);
   const forceRender = useForceRender();
 
@@ -85,13 +88,20 @@ export const Grid = () => {
     columnDefs,
   };
 
+  const agGridProps: AgGridReactProps = {
+    domLayout: "autoHeight",
+    rowData,
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore-next-line
+    gridOptions,
+  };
   return (
     <div className="canvas">
       <ReactSVG src="/vite.svg" />
       <button
         className="myButton"
         onClick={() => {
-          let classList = document.querySelector("html").classList;
+          const classList = document.querySelector("html").classList;
           classList.toggle("light");
           classList.toggle("dark");
         }}
@@ -99,11 +109,7 @@ export const Grid = () => {
         Toggle Light/Dark Theme
       </button>
       <div className="ag-theme-alpine">
-        <AgGridReact
-          domLayout="autoHeight"
-          rowData={rowData}
-          gridOptions={gridOptions}
-        ></AgGridReact>
+        <AgGridReact {...agGridProps}></AgGridReact>
       </div>
     </div>
   );
