@@ -6,7 +6,7 @@
  */
 
 interface ImportMetaEnv {
-  readonly VITE_RUNTIME_VAR: string;
+  readonly VITE_USER_NODE_ENV: string;
 }
 
 interface ImportMeta {

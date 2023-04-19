@@ -1,0 +1,8 @@
+@import "../functions";
+@import "../css-variables";
+
+html {
+  --background-color: #{get_color(violet)};
+}
+
+@import "../main";

@@ -18,29 +18,6 @@ for (let i = 0, lim = 500; i < lim; i++) {
   data.push({ make: "Porsche", model: "Boxster", price: 72000, cool: "true" });
 }
 
-// const Renderer = (params) => {
-//   return (
-//     <div>
-//       Value is <b> {params.value} </b>
-//     </div>
-//   );
-// };
-
-// const complexColDefs: ColumnDef[] = [
-//   {
-//     field: "make",
-//     cellRenderer: Renderer,
-//   },
-//   {
-//     field: "model",
-//     cellRenderer: Renderer,
-//   },
-//   {
-//     field: "price",
-//     cellRenderer: Renderer,
-//   },
-// ];
-
 const simpleColDefs: ColumnDef[] = [
   {
     field: "make",
@@ -98,16 +75,6 @@ export const Grid = () => {
   return (
     <div className="canvas">
       <ReactSVG src="/vite.svg" />
-      <button
-        className="myButton"
-        onClick={() => {
-          const classList = document.querySelector("html").classList;
-          classList.toggle("light");
-          classList.toggle("dark");
-        }}
-      >
-        Toggle Light/Dark Theme
-      </button>
       <div className="ag-theme-alpine">
         <AgGridReact {...agGridProps}></AgGridReact>
       </div>

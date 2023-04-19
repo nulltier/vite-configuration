@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
+  <!-- add path to default theme if needed, we need thisi tag to switch between themes -->
+  <link id="theme" rel="stylesheet" href="">
   <link rel="icon" type="image/svg+xml" href="/vite.svg"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vite + React</title>
-  <script type="application/javascript">
-    window.document.querySelector("html").classList.add("light")
-  </script>
 </head>
 <body>
+<div>
+  <button
+    id="themeButton">
+    Toggle Light/Dark Theme
+  </button>
+</div>
 <div id="root"></div>
-<script type="module" src="index.tsx"></script>
+<script type="module" src="index.ts"></script>
 </body>
 </html>
