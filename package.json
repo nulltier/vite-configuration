@@ -15,29 +15,29 @@
   "license": "ISC",
   "dependencies": {
     "@ag-grid-community/core": "29.2.0",
-    "@vitejs/plugin-react-swc": "3.3.0",
     "ag-grid-community": "29.2.0",
     "ag-grid-react": "29.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-svg": "16.1.7",
-    "rollup": "3.20.2",
-    "sass": "1.62.0",
-    "terser": "5.16.9",
-    "vite": "4.2.1"
+    "react-svg": "16.1.7"
   },
   "devDependencies": {
-    "@rollup/plugin-eslint": "9.0.3",
+    "vite-plugin-eslint": "1.8.1",
     "@types/jest": "29.5.0",
     "@types/node": "18.15.11",
     "@types/react": "18.0.35",
     "@types/react-dom": "18.0.11",
     "@typescript-eslint/eslint-plugin": "5.59.0",
     "@typescript-eslint/parser": "5.59.0",
+    "@vitejs/plugin-react-swc": "3.3.0",
     "eslint": "8.38.0",
     "eslint-plugin-react": "7.32.2",
     "prettier": "2.8.7",
+    "rollup": "3.20.2",
     "rollup-plugin-sass": "1.12.19",
-    "typescript": "5.0.4"
+    "sass": "1.62.0",
+    "terser": "5.16.9",
+    "typescript": "5.0.4",
+    "vite": "4.2.1"
   }
 }

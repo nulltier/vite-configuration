@@ -1,9 +1,8 @@
 import path from "path";
 import { RollupOptions } from "rollup";
-import { UserConfig, CSSOptions, ConfigEnv, defineConfig, loadEnv } from "vite";
+import { UserConfig, CSSOptions, ConfigEnv, defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
-import sass from "rollup-plugin-sass";
-import eslint from "@rollup/plugin-eslint";
+import eslint from "vite-plugin-eslint";
 
 /**
  * Docs: https://vitejs.dev/
@@ -24,7 +23,6 @@ export default defineConfig(
           agGrid: ["ag-grid-react"],
         },
       },
-      plugins: [sass({ output: true })],
     };
 
     const css: CSSOptions = {
@@ -54,7 +52,6 @@ export default defineConfig(
       server: {
         port: 3000,
         https: false,
-        origin: "http://localhost:3000",
         watch: {
           interval: 1000,
         },
@@ -64,13 +61,12 @@ export default defineConfig(
         https: false,
       },
       plugins: [
-        react(),
-        // order makes difference, put eslint after react
         eslint({
-          throwOnError: true,
-          throwOnWarning: true,
-          exclude: ["/virtual:/", "/node_modules/**"],
+          failOnError: true,
+          emitWarning: true,
+          exclude: ["virtual:/", "node_modules/**"],
         }),
+        react(),
       ],
       css,
     };

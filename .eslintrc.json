@@ -8,8 +8,7 @@
     "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "overrides": [
-  ],
+  "overrides": [],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
@@ -20,11 +19,13 @@
     "@typescript-eslint"
   ],
   "ignorePatterns": [
-    "node_modules"
+    "/virtual:/",
+    "node_modules/**"
   ],
-  "rules": {
-  },
-  "react": {
-    "version": "detect"
+  "rules": {},
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
