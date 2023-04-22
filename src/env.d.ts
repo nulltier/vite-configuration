@@ -6,6 +6,7 @@
  */
 
 interface ImportMetaEnv {
+  readonly VITE_USER_DYNAMIC?: boolean;
   readonly VITE_USER_NODE_ENV: string;
 }
 

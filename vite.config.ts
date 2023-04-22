@@ -12,28 +12,29 @@ import {
 } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import eslint from "vite-plugin-eslint";
+import basicSsl from "@vitejs/plugin-basic-ssl";
+import legacy from "@vitejs/plugin-legacy";
 
 const DEVELOPMENT_MODE = "development";
-const PRODUCTION_MODE = "production";
 /**
  * Docs: https://vitejs.dev/
  * Make sure to check https://github.com/vitejs/awesome-vite for cool stuff
  */
 export default defineConfig(
   async ({ command, mode }: ConfigEnv): Promise<UserConfig> => {
-    console.log("Mode: ", mode);
-    console.log("Command: ", command);
+    const HTTPS = process.env.HTTPS === "true";
+    const HOST = HTTPS ? "127.0.0.1" : "localhost";
 
     const rollupOptions: RollupOptions = {
       input: {
         main: path.resolve(__dirname, "src", "index.html"),
+        day: path.resolve(__dirname, "src", "styles", "themes", "day.scss"),
+        night: path.resolve(__dirname, "src", "styles", "themes", "night.scss"),
       },
       output: {
         manualChunks: {
           react: ["react", "react-dom"],
           agGrid: ["ag-grid-react"],
-          day: ["./src/styles/themes/day.scss"],
-          night: ["./src/styles/themes/night.scss"],
         },
         // rollup adds hash version id to a filename of each artefact, we need to disable it due the deployment configuration
         entryFileNames: `[name].js`,
@@ -58,17 +59,12 @@ export default defineConfig(
       cssMinify: true,
       sourcemap: mode === DEVELOPMENT_MODE ? "inline" : false,
       rollupOptions: rollupOptions,
-      modulePreload: {
-        // known issue of loading the chunks twice in firefox
-        // https://github.com/vitejs/vite/issues/5532
-        polyfill: false,
-      },
     };
 
     const serverOptions: ServerOptions = {
       port: 3000,
-      https: false,
-      origin: "http://localhost:3000",
+      https: HTTPS,
+      host: HOST,
       watch: {
         interval: 1000,
       },
@@ -76,7 +72,8 @@ export default defineConfig(
 
     const previewOptions: PreviewOptions = {
       port: 3001,
-      https: false,
+      host: HOST,
+      https: HTTPS,
     };
 
     const pluginsList: PluginOption[] = [
@@ -85,7 +82,14 @@ export default defineConfig(
         emitWarning: true,
       }),
       react(),
+      legacy({
+        targets: "last 10 versions, not dead",
+      }),
     ];
+
+    if (HTTPS) {
+      pluginsList.push(basicSsl());
+    }
 
     return Promise.resolve({
       root: path.join(process.cwd(), "src"),
@@ -95,6 +99,9 @@ export default defineConfig(
       server: serverOptions,
       preview: previewOptions,
       plugins: pluginsList,
+      define: {
+        VITE_USER_DYNAMIC: Math.random() > 0.5,
+      },
     });
   }
 );

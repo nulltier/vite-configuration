@@ -1,4 +1,3 @@
-import "./modules";
 const devMode = () => import.meta.env.MODE === "development";
 
 function dayTheme() {

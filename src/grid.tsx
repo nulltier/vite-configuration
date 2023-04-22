@@ -5,8 +5,6 @@ import { ReactSVG } from "react-svg";
 
 import "ag-grid-community/styles/ag-grid.css";
 import "ag-grid-community/styles/ag-theme-alpine.css";
-import "ag-grid-community/styles/ag-theme-balham.css";
-import "ag-grid-community/styles/ag-theme-material.css";
 
 type ColumnDef = ColDef | ColGroupDef;
 
