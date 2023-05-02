@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 
 export default function renderView() {
   return Promise.all([
-    import("./grid"),
+    import("./components/grid/grid"),
     new Promise((res) => {
       setTimeout(res, 1000);
     }),
