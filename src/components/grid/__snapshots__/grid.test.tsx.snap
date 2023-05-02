@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ag grid access api 1`] = `
+""Maker","Model","Price","Cool"
+"Porsche","Boxster","72000","yes"
+"Porsche","Boxster","72000","yes"
+"Porsche","Boxster","72000","yes"
+"Toyota","Celica","35000","yes"
+"Toyota","Celica","35000","yes"
+"Toyota","Celica","35000","yes"
+"Ford","Mondeo","32000","no"
+"Ford","Mondeo","32000","no"
+"Ford","Mondeo","32000","no""
+`;

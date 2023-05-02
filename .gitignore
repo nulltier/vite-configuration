@@ -4,5 +4,8 @@ node_modules/
 # Vite
 dist/
 
+# jest
+coverage/
+
 # Environments
 env/*.local

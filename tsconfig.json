@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
+    "target": "ES2022",
     "esModuleInterop": true,
     "types": [
-      "vite/client"
+      "vite/client",
+      "@types/jest"
     ],
     "jsx": "react-jsx",
     "module": "es2022",
