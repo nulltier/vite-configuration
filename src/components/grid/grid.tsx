@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { AgGridReactProps } from "ag-grid-react";
 import { ColDef, ColGroupDef, GridOptions } from "@ag-grid-community/core";
 import { GridWrapper } from "../grid-wrapper/grid-wrapper";
+import Button from "../button";
 
 type ColumnDef = ColDef | ColGroupDef;
 
@@ -43,6 +44,14 @@ const simpleColDefs: ColumnDef[] = [
   },
 ];
 
+const LazyButton = lazy(async () => {
+  const dynName = await new Promise((resolve) =>
+    setTimeout(() => resolve("New Name"), 3000)
+  );
+
+  return { default: (props) => Button({ ...props, name: dynName }) };
+});
+
 function Grid() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [rowData, _setRowData] = useState(data);
@@ -67,6 +76,9 @@ function Grid() {
       <div className="ag-theme-alpine" data-testid="grid">
         <GridWrapper gridProps={agGridProps} />
       </div>
+      <Suspense fallback="⌛">
+        <LazyButton id={"id"} name={"name"} />
+      </Suspense>
     </div>
   );
 }
