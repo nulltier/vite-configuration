@@ -3,6 +3,10 @@
 @import "css-variables";
 @import "constants";
 
+html, body, #root, .canvas, .grid {
+  height: 100% !important;
+}
+
 .canvas {
   background-color: $mainBackgroundColor;
   padding: u(4);
