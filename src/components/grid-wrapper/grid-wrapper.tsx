@@ -18,6 +18,7 @@ export function GridWrapper({ gridProps }: { gridProps: AgGridReactProps }) {
   const props: AgGridReactProps = {
     ...gridProps,
     onGridReady(event) {
+      console.log("onGridReady", event);
       gridProps.onGridReady?.(event);
 
       if (cb) {
