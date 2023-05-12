@@ -22,7 +22,14 @@
     "/virtual:/",
     "node_modules/**"
   ],
-  "rules": {},
+  "rules": {
+    // https://eslint.org/docs/latest/rules/no-restricted-imports#options
+    "no-restricted-imports": ["error", {
+      "patterns": [
+        "views" // all code within views are for the internal use
+      ]
+    }]
+  },
   "settings": {
     "react": {
       "version": "detect"
