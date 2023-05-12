@@ -6,6 +6,7 @@ import { GridReadyEvent } from "ag-grid-community";
 import { GridWrapper } from "../grid-wrapper/grid-wrapper";
 import { randomIntInRange, randomItem } from "../../tools/random";
 import Button from "../button";
+import { crazyViewSpecificFunction } from "../../views/tools";
 
 type ColumnDef = ColDef | ColGroupDef;
 
@@ -121,6 +122,8 @@ function Grid() {
     // @ts-ignore-next-line
     gridOptions,
   };
+
+  crazyViewSpecificFunction();
 
   return (
     <div className="canvas">
